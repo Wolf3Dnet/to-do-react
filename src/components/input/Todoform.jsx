@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import s from "./form.module.css";
+import s from "./Todoform.module.css";
 
-const Form = () => {
+const TodoForm = () => {
   const [list, setList] = useState([]);
   const [todoTitle, setTodoTitle] = useState("");
 
   const addTodo = () => {
-    setList([...list, { title: todoTitle, id: list.length + 1 }]);
-    setTodoTitle("");
+    if (todoTitle !== "") {
+      setList([...list, { title: todoTitle, id: list.length + 1 }]);
+      setTodoTitle("");
+    }
   };
 
   console.log("list =>", list);
@@ -33,4 +35,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default TodoForm;
