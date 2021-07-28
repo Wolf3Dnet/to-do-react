@@ -1,15 +1,13 @@
 import React from "react";
-import "./App.css";
-import Button from "./components/button/button";
+import s from "./App.module.css";
 import Elements from "./components/elements/elements";
-import Input from "./components/input/input";
+import Form from "./components/input/form";
 
 function App() {
   return (
-    <div className="wrapper">
+    <div className={s.wrapper}>
       <h1>To do list</h1>
-      <Input />
-      <Button />
+      <Form />
       <Elements />
     </div>
   );
