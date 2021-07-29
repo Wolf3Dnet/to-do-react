@@ -4,7 +4,6 @@ import s from "./Todoform.module.css";
 const TodoForm = React.memo(({ addTodo }) => {
   const [todoTitle, setTodoTitle] = useState("");
 
-  console.log(todoTitle);
   return (
     <div>
       <form>
@@ -18,7 +17,10 @@ const TodoForm = React.memo(({ addTodo }) => {
         <input
           className={s.button}
           value="Add"
-          onClick={() => addTodo(todoTitle)}
+          onClick={() => {
+            addTodo(todoTitle);
+            setTodoTitle("");
+          }}
           type="button"
         />
       </form>
