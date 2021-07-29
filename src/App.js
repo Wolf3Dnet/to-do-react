@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import s from "./App.module.css";
 import { Elements } from "./components/elements/elements";
-import { MemoTodoForm } from "./components/todoForm/Todoform";
+import { TodoForm } from "./components/todoForm/Todoform";
 
 export function App() {
   const [list, setList] = useState([{ id: 0, title: "First try" }]);
@@ -18,7 +18,7 @@ export function App() {
   return (
     <div className={s.wrapper}>
       <h1>To do list</h1>
-      <MemoTodoForm
+      <TodoForm
         list={list}
         todoTitle={todoTitle}
         setList={setList}

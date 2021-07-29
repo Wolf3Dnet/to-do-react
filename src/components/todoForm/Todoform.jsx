@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Todoform.module.css";
 
-export const MemoTodoForm = React.memo(function TodoForm(props) {
+export const TodoForm = React.memo((props) => {
   return (
     <div>
       <form>
