@@ -1,36 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import s from "./Todoform.module.css";
 
-export const TodoForm = () => {
-  const [list, setList] = useState([]);
-  const [todoTitle, setTodoTitle] = useState("");
-
-  const addTodo = () => {
-    if (todoTitle !== "") {
-      setList([...list, { title: todoTitle, id: list.length + 1 }]);
-      setTodoTitle("");
-    }
-  };
-
-  console.log("list =>", list);
-
+export const MemoTodoForm = React.memo(function TodoForm(props) {
   return (
     <div>
       <form>
         <input
           placeholder="Введите текст"
           type="text"
-          value={todoTitle}
+          value={props.todoTitle}
           className={s.input}
-          onChange={(e) => setTodoTitle(e.target.value)}
+          onChange={(e) => props.setTodoTitle(e.target.value)}
         />
         <input
           className={s.button}
           value="Add"
-          onClick={addTodo}
+          onClick={props.addTodo}
           type="button"
         />
       </form>
     </div>
   );
-};
+});
