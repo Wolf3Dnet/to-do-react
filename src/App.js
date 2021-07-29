@@ -1,9 +1,9 @@
 import React from "react";
 import s from "./App.module.css";
-import Elements from "./components/elements/elements";
-import TodoForm from "./components/todoForm/Todoform";
+import { Elements } from "./components/elements/elements";
+import { TodoForm } from "./components/todoForm/Todoform";
 
-function App() {
+export function App() {
   return (
     <div className={s.wrapper}>
       <h1>To do list</h1>
@@ -12,5 +12,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

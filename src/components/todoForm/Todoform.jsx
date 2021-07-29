@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import s from "./Todoform.module.css";
 
-const TodoForm = () => {
+export const TodoForm = () => {
   const [list, setList] = useState([]);
   const [todoTitle, setTodoTitle] = useState("");
 
@@ -34,5 +34,3 @@ const TodoForm = () => {
     </div>
   );
 };
-
-export default TodoForm;
