@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./Todoform.module.css";
 
-export const TodoForm = React.memo((props) => {
+const TodoForm = React.memo(({ addTodo }) => {
+  const [todoTitle, setTodoTitle] = useState("");
+
+  console.log(todoTitle);
   return (
     <div>
       <form>
         <input
           placeholder="Введите текст"
           type="text"
-          value={props.todoTitle}
+          value={todoTitle}
           className={s.input}
-          onChange={(e) => props.setTodoTitle(e.target.value)}
+          onChange={(e) => setTodoTitle(e.target.value)}
         />
         <input
           className={s.button}
           value="Add"
-          onClick={props.addTodo}
+          onClick={() => addTodo(todoTitle)}
           type="button"
         />
       </form>
     </div>
   );
 });
+export { TodoForm };
