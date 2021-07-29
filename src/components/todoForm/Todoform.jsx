@@ -1,18 +1,8 @@
 import React, { useState } from "react";
 import s from "./Todoform.module.css";
 
-const TodoForm = () => {
-  const [list, setList] = useState([]);
+const TodoForm = React.memo(({ addTodo }) => {
   const [todoTitle, setTodoTitle] = useState("");
-
-  const addTodo = () => {
-    if (todoTitle !== "") {
-      setList([...list, { title: todoTitle, id: list.length + 1 }]);
-      setTodoTitle("");
-    }
-  };
-
-  console.log("list =>", list);
 
   return (
     <div>
@@ -27,12 +17,14 @@ const TodoForm = () => {
         <input
           className={s.button}
           value="Add"
-          onClick={addTodo}
+          onClick={() => {
+            addTodo(todoTitle);
+            setTodoTitle("");
+          }}
           type="button"
         />
       </form>
     </div>
   );
-};
-
-export default TodoForm;
+});
+export { TodoForm };
