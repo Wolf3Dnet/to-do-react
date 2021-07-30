@@ -1,0 +1,111 @@
+.li {
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  padding-left: 5px;
+  background-color: white;
+  padding-right: 5px;
+  position: relative;
+  min-height: 50px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.completeButton {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -38px;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
+
+.completeButton:hover {
+  background-color: rgb(126, 247, 176);
+}
+
+.completeButtonActive {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -38px;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  background-color: #88e0a5;
+}
+
+.completeButtonActive:hover {
+  background-color: rgb(126, 247, 176);
+}
+
+.textarea {
+  display: block;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-bottom: 20px;
+  height: 100%;
+  line-height: 20px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 75px;
+  overflow: visible;
+  background-color: wheat;
+  word-break: break-all;
+  resize: none;
+  border-radius: 6px;
+  font-size: 16px;
+  padding-top: 15px;
+  letter-spacing: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 20px;
+}
+
+.textareaAdd {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(0, -50%);
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+  line-height: 20px;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.textareaUndo {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 45px;
+  transform: translate(0, -50%);
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+  line-height: 20px;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.div {
+  line-height: 20px;
+  font-size: 16px;
+  letter-spacing: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

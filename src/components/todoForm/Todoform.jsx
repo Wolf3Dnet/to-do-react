@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import s from "./Todoform.module.css";
 
-const TodoForm = React.memo(({ addTodo }) => {
+const TodoForm = React.memo(({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState("");
 
   return (
@@ -18,7 +18,7 @@ const TodoForm = React.memo(({ addTodo }) => {
           className={s.button}
           value="Add"
           onClick={() => {
-            addTodo(todoTitle);
+            onAddTodo(todoTitle);
             setTodoTitle("");
           }}
           type="button"

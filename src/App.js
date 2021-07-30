@@ -9,7 +9,7 @@ function App() {
     { id: 1, title: "Second try", isComplete: false, isEdit: false },
   ]);
 
-  const addTodo = (title) => {
+  const handleAddTodo = (title) => {
     if (title !== "") {
       setList([
         ...list,
@@ -18,11 +18,11 @@ function App() {
     }
   };
 
-  const removeTodo = (id) => {
+  const handleRemoveTodo = (id) => {
     setList([...list].filter((todo) => todo.id !== id));
   };
 
-  const completeTodo = (id) => {
+  const handleCompleteTodo = (id) => {
     setList(
       [...list].map((todo) => {
         if (todo.id === id) {
@@ -33,7 +33,7 @@ function App() {
     );
   };
 
-  const editTodo = (id) => {
+  const handleEditTodo = (id) => {
     setList(
       [...list].map((todo) => {
         if (todo.id === id) {
@@ -44,7 +44,7 @@ function App() {
     );
   };
 
-  const agreeEdit = (title, id) => {
+  const handleAgreeEdit = (title, id) => {
     setList(
       [...list].map((todo) => {
         if (todo.id === id) {
@@ -56,7 +56,7 @@ function App() {
     );
   };
 
-  const undoEdit = (id) => {
+  const handleUndoEdit = (id) => {
     setList(
       [...list].map((todo) => {
         if (todo.id === id) {
@@ -71,14 +71,14 @@ function App() {
   return (
     <div className={s.wrapper}>
       <h1>To do list</h1>
-      <TodoForm addTodo={addTodo} />
+      <TodoForm onAddTodo={handleAddTodo} />
       <Elements
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
+        onCompleteTodo={handleCompleteTodo}
+        onRemoveTodo={handleRemoveTodo}
         list={list}
-        editTodo={editTodo}
-        agreeEdit={agreeEdit}
-        undoEdit={undoEdit}
+        onEditTodo={handleEditTodo}
+        onAgreeEdit={handleAgreeEdit}
+        onUndoEdit={handleUndoEdit}
       />
     </div>
   );

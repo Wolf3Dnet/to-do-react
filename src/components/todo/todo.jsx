@@ -1,72 +1,39 @@
 import React from "react";
-import s from "./todo.module.css";
-import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
-import UndoOutlinedIcon from "@material-ui/icons/UndoOutlined";
-import { useState } from "react";
+import { TodoOutput } from "../todoOutput/todoOutput";
+import { TodoEdit } from "../todoEdit/todoEdit";
 
 export const Todo = ({
   value,
   id,
-  removeTodo,
-  completeTodo,
+  onRemoveTodo,
+  onCompleteTodo,
   isComplete,
   isEdit,
-  editTodo,
-  agreeEdit,
-  undoEdit,
+  onEditTodo,
+  onAgreeEdit,
+  onUndoEdit,
 }) => {
-  // console.log("value =>", value);
-  // console.log("id =>", id);
-  // console.log("isEdit =>", isEdit);
-
-  const [newTodo, setNewTodo] = useState(value);
-
   if (isEdit === false) {
     return (
-      <li className={isComplete ? s.liComplete : s.li}>
-        <button
-          onClick={() => completeTodo(id)}
-          className={isComplete ? s.completeButtonActive : s.completeButton}
-        ></button>
-        <span onClick={() => editTodo(id)} className={s.span}>
-          {value}
-        </span>
-        <button onClick={() => removeTodo(id)} className={s.delete}>
-          Delete
-        </button>
-      </li>
+      <TodoOutput
+        onEditTodo={onEditTodo}
+        isComplete={isComplete}
+        onRemoveTodo={onRemoveTodo}
+        value={value}
+        id={id}
+        onCompleteTodo={onCompleteTodo}
+      />
     );
   } else {
     return (
-      <li className={isComplete ? s.liComplete : s.li}>
-        <button
-          disabled={true}
-          onClick={() => completeTodo(id)}
-          className={isComplete ? s.completeButtonActive : s.completeButton}
-        ></button>
-        <textarea
-          onChange={(e) => setNewTodo(e.target.value)}
-          defaultValue={value}
-          className={s.textarea}
-        ></textarea>
-        <button
-          onClick={() => {
-            console.log("new Todo =>", { newTodo });
-            agreeEdit(newTodo, id);
-          }}
-          className={s.textareaAdd}
-        >
-          {<DoneOutlinedIcon style={{ fontSize: 20 }}></DoneOutlinedIcon>}
-        </button>
-        <button
-          onClick={() => {
-            undoEdit(id);
-          }}
-          className={s.textareaUndo}
-        >
-          {<UndoOutlinedIcon style={{ fontSize: 20 }}></UndoOutlinedIcon>}
-        </button>
-      </li>
+      <TodoEdit
+        onUndoEdit={onUndoEdit}
+        isComplete={isComplete}
+        onAgreeEdit={onAgreeEdit}
+        value={value}
+        id={id}
+        onCompleteTodo={onCompleteTodo}
+      />
     );
   }
 };
