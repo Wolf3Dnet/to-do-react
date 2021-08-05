@@ -1,5 +1,6 @@
-import React from "react";
-import s from "./todoOutput.module.css";
+import React from 'react';
+import s from './todoOutput.module.css';
+import PropTypes from 'prop-types';
 
 export const TodoOutput = ({
   onEditTodo,
@@ -23,4 +24,13 @@ export const TodoOutput = ({
       </button>
     </li>
   );
+};
+
+TodoOutput.propTypes = {
+  onEditTodo: PropTypes.func,
+  isComplete: PropTypes.bool,
+  onRemoveTodo: PropTypes.func,
+  value: PropTypes.string,
+  id: PropTypes.number,
+  onCompleteTodo: PropTypes.func,
 };

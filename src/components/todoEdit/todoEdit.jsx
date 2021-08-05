@@ -1,8 +1,9 @@
-import React from "react";
-import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
-import UndoOutlinedIcon from "@material-ui/icons/UndoOutlined";
-import { useState } from "react";
-import s from "./todoEdit.module.css";
+import React from 'react';
+import DoneOutlinedIcon from '@material-ui/icons/DoneOutlined';
+import UndoOutlinedIcon from '@material-ui/icons/UndoOutlined';
+import { useState } from 'react';
+import s from './todoEdit.module.css';
+import PropTypes from 'prop-types';
 
 export const TodoEdit = ({
   onUndoEdit,
@@ -31,7 +32,7 @@ export const TodoEdit = ({
       </div>
       <button
         onClick={() => {
-          console.log("new Todo =>", { newTodo });
+          console.log('new Todo =>', { newTodo });
           onAgreeEdit(newTodo, id);
         }}
         className={s.textareaAdd}
@@ -48,4 +49,13 @@ export const TodoEdit = ({
       </button>
     </li>
   );
+};
+
+TodoEdit.propTypes = {
+  onUndoEdit: PropTypes.func,
+  isComplete: PropTypes.bool,
+  onAgreeEdit: PropTypes.func,
+  value: PropTypes.string,
+  id: PropTypes.number,
+  onCompleteTodo: PropTypes.func,
 };

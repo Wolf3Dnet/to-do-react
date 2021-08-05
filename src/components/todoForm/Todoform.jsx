@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import s from "./Todoform.module.css";
+import React, { useState } from 'react';
+import s from './Todoform.module.css';
+import PropTypes from 'prop-types';
 
 const TodoForm = React.memo(({ onAddTodo }) => {
-  const [todoTitle, setTodoTitle] = useState("");
+  const [todoTitle, setTodoTitle] = useState('');
 
   return (
     <div>
@@ -19,7 +20,7 @@ const TodoForm = React.memo(({ onAddTodo }) => {
           value="Add"
           onClick={() => {
             onAddTodo(todoTitle);
-            setTodoTitle("");
+            setTodoTitle('');
           }}
           type="button"
         />
@@ -27,4 +28,6 @@ const TodoForm = React.memo(({ onAddTodo }) => {
     </div>
   );
 });
+
+TodoForm.propTypes = { onAddTodo: PropTypes.func };
 export { TodoForm };

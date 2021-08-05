@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import s from "./App.module.css";
-import { Elements } from "./components/elements/elements";
-import { TodoForm } from "./components/todoForm/Todoform";
+import React, { useState } from 'react';
+import s from './App.module.css';
+import { Elements } from './components/elements/elements';
+import { TodoForm } from './components/todoForm/Todoform';
 
 function App() {
   const [list, setList] = useState([
-    { id: 0, title: "First try", isComplete: false, isEdit: false },
-    { id: 1, title: "Second try", isComplete: false, isEdit: false },
+    { id: 0, title: 'First try', isComplete: false, isEdit: false },
+    { id: 1, title: 'Second try', isComplete: false, isEdit: false },
   ]);
 
   const handleAddTodo = (title) => {
-    if (title !== "") {
+    if (title !== '') {
       setList([
         ...list,
         { id: list.length + 1, title: title, isComplete: false, isEdit: false },
@@ -67,7 +67,7 @@ function App() {
     );
   };
 
-  console.log("list =>", list);
+  console.log('list =>', list);
   return (
     <div className={s.wrapper}>
       <h1>To do list</h1>
