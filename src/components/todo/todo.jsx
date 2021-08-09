@@ -1,7 +1,7 @@
 import React from 'react';
 import { TodoOutput } from '../todoOutput/todoOutput';
 import { TodoEdit } from '../todoEdit/todoEdit';
-import PropTypes from 'prop-types';
+import { string, bool, number, func } from 'prop-types';
 
 export const Todo = ({
   value,
@@ -40,13 +40,13 @@ export const Todo = ({
 };
 
 Todo.propTypes = {
-  value: PropTypes.string,
-  id: PropTypes.number,
-  onRemoveTodo: PropTypes.func,
-  onCompleteTodo: PropTypes.func,
-  isComplete: PropTypes.bool,
-  isEdit: PropTypes.bool,
-  onEditTodo: PropTypes.func,
-  onAgreeEdit: PropTypes.func,
-  onUndoEdit: PropTypes.func,
+  value: string,
+  id: number,
+  onRemoveTodo: func,
+  onCompleteTodo: func,
+  isComplete: bool,
+  isEdit: bool,
+  onEditTodo: func,
+  onAgreeEdit: func,
+  onUndoEdit: func,
 };

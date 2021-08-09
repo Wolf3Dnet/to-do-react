@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import s from './Todoform.module.css';
-import PropTypes from 'prop-types';
+import { func } from 'prop-types';
 
 const TodoForm = React.memo(({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState('');
@@ -29,5 +29,5 @@ const TodoForm = React.memo(({ onAddTodo }) => {
   );
 });
 
-TodoForm.propTypes = { onAddTodo: PropTypes.func };
+TodoForm.propTypes = { onAddTodo: func };
 export { TodoForm };

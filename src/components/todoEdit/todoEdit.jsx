@@ -3,7 +3,7 @@ import DoneOutlinedIcon from '@material-ui/icons/DoneOutlined';
 import UndoOutlinedIcon from '@material-ui/icons/UndoOutlined';
 import { useState } from 'react';
 import s from './todoEdit.module.css';
-import PropTypes from 'prop-types';
+import { string, bool, number, func } from 'prop-types';
 
 export const TodoEdit = ({
   onUndoEdit,
@@ -52,10 +52,10 @@ export const TodoEdit = ({
 };
 
 TodoEdit.propTypes = {
-  onUndoEdit: PropTypes.func,
-  isComplete: PropTypes.bool,
-  onAgreeEdit: PropTypes.func,
-  value: PropTypes.string,
-  id: PropTypes.number,
-  onCompleteTodo: PropTypes.func,
+  onUndoEdit: func,
+  isComplete: bool,
+  onAgreeEdit: func,
+  value: string,
+  id: number,
+  onCompleteTodo: func,
 };

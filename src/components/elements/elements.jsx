@@ -1,5 +1,5 @@
 import React from 'react';
-import { func, number, string } from 'prop-types';
+import { func, number, string, arrayOf, shape } from 'prop-types';
 import { Todo } from '../todo/todo';
 import s from './elements.module.css';
 
@@ -34,7 +34,7 @@ export const Elements = React.memo(
 );
 
 Elements.propTypes = {
-  list: arrayOf(PropTypes.shape({ id: number, title: string })),
+  list: arrayOf(shape({ id: number, title: string })),
   onRemoveTodo: func,
   onCompleteTodo: func,
   onEditTodo: func,
