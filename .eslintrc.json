@@ -4,13 +4,11 @@
   "es6": true, // Включает синтаксис ES6 автоматически
   "node": true // Разрешить запуск кода в node
 },
-"parser": "babel-eslint",
 "extends": [
-  "airbnb",
   "plugin:react/recommended",
-  "prettier", 
-  "prettier/react"],
-  
+  "plugin:prettier/recommended"
+  ],
+
 "globals": {
   "Atomics": "readonly",
   "SharedArrayBuffer": "readonly"
@@ -24,14 +22,15 @@
 },
 "plugins": [ // Включить поддержку плагинов
   "react",
-  "babel",
-  "prettier"
+  "prettier",
+  "babel"
 ],
 "rules": { // Задать правила игнорирования типичных ошибок
   "no-unused-vars": ["error", { "caughtErrorsIgnorePattern": "^ignore" }],
   "react/jsx-uses-react": 1,
   "react/jsx-uses-vars": "error",
   "prettier/prettier": "error",
+  "react/display-name": "off",
   "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   "react/state-in-constructor": "off",
 

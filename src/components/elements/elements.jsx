@@ -1,7 +1,7 @@
 import React from 'react';
+import { func, number, string } from 'prop-types';
 import { Todo } from '../todo/todo';
 import s from './elements.module.css';
-import PropTypes from 'prop-types';
 
 export const Elements = React.memo(
   ({
@@ -34,10 +34,10 @@ export const Elements = React.memo(
 );
 
 Elements.propTypes = {
-  list: PropTypes.array,
-  onRemoveTodo: PropTypes.func,
-  onCompleteTodo: PropTypes.func,
-  onEditTodo: PropTypes.func,
-  onAgreeEdit: PropTypes.func,
-  onUndoEdit: PropTypes.func,
+  list: arrayOf(PropTypes.shape({ id: number, title: string })),
+  onRemoveTodo: func,
+  onCompleteTodo: func,
+  onEditTodo: func,
+  onAgreeEdit: func,
+  onUndoEdit: func,
 };
