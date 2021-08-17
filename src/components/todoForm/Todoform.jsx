@@ -5,6 +5,7 @@ import { func } from 'prop-types';
 const TodoForm = React.memo(({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState('');
 
+  console.log('TodoForm render');
   return (
     <div>
       <form>
