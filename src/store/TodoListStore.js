@@ -21,7 +21,7 @@ export const TodoList = types
       self.todoItems.push(newTodoItem);
     },
 
-    removeTodo(key) {
-      self.todoItems.delete(key);
+    removeTodo(id) {
+      self.todoItems.filter((todo) => todo.id !== id);
     },
   }));
