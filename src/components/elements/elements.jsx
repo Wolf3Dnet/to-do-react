@@ -1,11 +1,12 @@
 import React from 'react';
-import { func, number, string, arrayOf, shape } from 'prop-types';
+import { func, array } from 'prop-types';
 import { Todo } from '../todo/todo';
 import s from './elements.module.css';
+import { observer } from 'mobx-react-lite';
 
-export const Elements = React.memo(
+export const Elements = observer(
   ({
-    list,
+    List,
     onRemoveTodo,
     onCompleteTodo,
     onEditTodo,
@@ -14,7 +15,7 @@ export const Elements = React.memo(
   }) => {
     return (
       <ul className={s.ul}>
-        {list.map((todo) => (
+        {List.map((todo) => (
           <Todo
             key={todo.id}
             value={todo.title}
@@ -34,7 +35,7 @@ export const Elements = React.memo(
 );
 
 Elements.propTypes = {
-  list: arrayOf(shape({ id: number, title: string })),
+  List: array,
   onRemoveTodo: func,
   onCompleteTodo: func,
   onEditTodo: func,

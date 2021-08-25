@@ -1,33 +1,32 @@
+import { observer } from 'mobx-react-lite';
 import React, { useCallback, useState } from 'react';
 import s from './App.module.css';
 import { Elements } from './components/elements/elements';
 import { TodoForm } from './components/todoForm/Todoform';
+import { todoList } from './store/TodoListStore';
 
-function App() {
+export const App = observer(() => {
   const [list, setList] = useState([]);
 
   const handleAddTodo = useCallback(
     (title) => {
       if (title !== '') {
-        setList([
-          ...list,
-          {
-            id: Math.random(),
-            title: title,
-            isComplete: false,
-            isEdit: false,
-          },
-        ]);
+        todoList.addTodo({
+          id: Math.random(),
+          title: title,
+          isComplete: false,
+          isEdit: false,
+        });
 
         console.log('handleAddTodo сработала');
       }
     },
-    [list]
+    [todoList]
   );
 
   const handleRemoveTodo = useCallback(
     (id) => {
-      setList([...list].filter((todo) => todo.id !== id));
+      todoList.removeTodo(id);
       console.log('handleRemoveTodo сработала');
     },
     [list]
@@ -35,45 +34,23 @@ function App() {
 
   const handleCompleteTodo = useCallback(
     (id) => {
-      setList(
-        [...list].map((todo) => {
-          if (todo.id === id) {
-            todo.isComplete = !todo.isComplete;
-          }
-          return todo;
-        })
-      );
+      todoList.setComplete(id);
       console.log('handleCompleteTodo сработала');
     },
-    [list]
+    [todoList]
   );
 
   const handleEditTodo = useCallback(
     (id) => {
-      setList(
-        [...list].map((todo) => {
-          if (todo.id === id) {
-            todo.isEdit = !todo.isEdit;
-          }
-          return todo;
-        })
-      );
+      todoList.setEdit(id);
       console.log('handleEditTodo сработала');
     },
-    [list]
+    [todoList]
   );
 
   const handleAgreeEdit = useCallback(
     (title, id) => {
-      setList(
-        [...list].map((todo) => {
-          if (todo.id === id) {
-            todo.title = title;
-            todo.isEdit = !todo.isEdit;
-          }
-          return todo;
-        })
-      );
+      todoList.setAgreeEdit(title, id);
       console.log('handleAgreeEdit сработала');
     },
     [list]
@@ -81,14 +58,7 @@ function App() {
 
   const handleUndoEdit = useCallback(
     (id) => {
-      setList(
-        [...list].map((todo) => {
-          if (todo.id === id) {
-            todo.isEdit = !todo.isEdit;
-          }
-          return todo;
-        })
-      );
+      todoList.setEdit(id);
       console.log('handleUndoEdit сработала');
     },
     [list]
@@ -103,12 +73,11 @@ function App() {
       <Elements
         onCompleteTodo={handleCompleteTodo}
         onRemoveTodo={handleRemoveTodo}
-        list={list}
+        List={todoList.todoItems}
         onEditTodo={handleEditTodo}
         onAgreeEdit={handleAgreeEdit}
         onUndoEdit={handleUndoEdit}
       />
     </div>
   );
-}
-export { App };
+});
