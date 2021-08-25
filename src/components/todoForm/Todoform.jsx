@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
 import s from './Todoform.module.css';
 import { func } from 'prop-types';
+import { useCallback } from 'react';
 
 const TodoForm = React.memo(({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState('');
+
+  const handleChange = useCallback(
+    (e) => {
+      setTodoTitle(e.target.value);
+    },
+    [todoTitle]
+  );
+
+  const handleAdd = useCallback(() => {
+    onAddTodo(todoTitle);
+    setTodoTitle('');
+  }, [todoTitle]);
 
   console.log('TodoForm render');
   return (
@@ -14,15 +27,12 @@ const TodoForm = React.memo(({ onAddTodo }) => {
           type="text"
           value={todoTitle}
           className={s.input}
-          onChange={(e) => setTodoTitle(e.target.value)}
+          onChange={handleChange}
         />
         <input
           className={s.button}
           value="Add"
-          onClick={() => {
-            onAddTodo(todoTitle);
-            setTodoTitle('');
-          }}
+          onClick={handleAdd}
           type="button"
         />
       </form>
