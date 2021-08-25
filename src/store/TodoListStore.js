@@ -25,8 +25,13 @@ export const TodoList = types
     todoItems: types.array(TodoItem),
   })
   .actions((self) => ({
-    addTodo(newTodoItem) {
-      self.todoItems.push(newTodoItem);
+    addTodo(title) {
+      self.todoItems.push({
+        id: Math.random(),
+        title: title,
+        isComplete: false,
+        isEdit: false,
+      });
     },
 
     setComplete(id) {
